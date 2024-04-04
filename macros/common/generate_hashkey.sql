@@ -1,10 +1,11 @@
-{% macro generate_hashkey(schema_name,table_name) %}
+{% macro generate_hashkey(information_schema_name,schema_name,table_name) %}
 
 {# get column list #}
 {% set column_list %}
-select upper(COLUMN_NAME) as COLUMN_NAME
-from {{ source('info_schema_dbt_db','columns') }} 
-where table_schema='{{schema_name}}' and table_name='{{table_name}}' and upper(column_name) not like 'ETL_%'
+select upper(column_name) as column_name
+from {{ source(information_schema_name,'columns') }} 
+where lower(table_schema)='{{schema_name}}' and lower(table_name)='{{table_name}}' 
+        and upper(column_name) not like 'ETL_%'
 order by ordinal_position
 {% endset %}
 

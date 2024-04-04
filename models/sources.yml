@@ -15,3 +15,15 @@ sources:
     tables:
       - name: columns
 
+  - name: staging
+    database: dbt_db
+    schema: staging
+    tables:
+      - name: t1
+      - name: t2
+      - name: t3
+      - name: t4
+      - name: t5
+      - name: t6
+
+
