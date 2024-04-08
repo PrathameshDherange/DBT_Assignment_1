@@ -25,5 +25,12 @@ sources:
       - name: t4
       - name: t5
       - name: t6
+      - name: department_details
+
+  - name: snapshot
+    database: dbt_db
+    schema: snapshot
+    tables:
+      - name: employee_details_snapshot
 
 
