@@ -2,7 +2,6 @@ version: 2
 
 sources:
   - name: raw
-    database: dbt_db
     schema: raw
     tables:
       - name: employee_details
@@ -10,13 +9,11 @@ sources:
       - name: store
 
   - name: info_schema_dbt_db
-    database: dbt_db
     schema: information_schema
     tables:
       - name: columns
 
   - name: staging
-    database: dbt_db
     schema: staging
     tables:
       - name: t1
@@ -28,7 +25,6 @@ sources:
       - name: department_details
 
   - name: snapshot
-    database: dbt_db
     schema: snapshot
     tables:
       - name: employee_details_snapshot
