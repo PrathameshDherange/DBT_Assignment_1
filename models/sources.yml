@@ -2,18 +2,27 @@ version: 2
 
 sources:
   - name: raw
+    description: Raw / source data storage schema
     schema: raw
     tables:
       - name: employee_details
+        columns:
+          - name: employee_id
+            tests:
+              - not_null
+              - unique
+              
       - name: item
       - name: store
 
   - name: info_schema_dbt_db
+    description: Snowflake Information Schema
     schema: information_schema
     tables:
       - name: columns
 
   - name: staging
+    description: Transformed tables / Intermediate layer
     schema: staging
     tables:
       - name: t1
@@ -23,10 +32,18 @@ sources:
       - name: t5
       - name: t6
       - name: department_details
+      - name: stg_employee_details
 
   - name: snapshot
+    description: Schema to track Incremental data load
     schema: snapshot
     tables:
       - name: employee_details_snapshot
+
+  - name: reporting
+    description: Final table schema
+    schema: reporting
+    tables:
+      - name: active_employee_details
 
 

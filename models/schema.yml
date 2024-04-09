@@ -1,0 +1,58 @@
+version: 2
+
+models:
+  - name: stg_employee_details
+    description: Stores active employee detail from snapshot table
+    columns:
+      - name: employee_id
+        description: primary key
+        tests:
+          - not_null
+          - unique
+          
+      - name: employee_department_id
+        description: Key to access details from department_details table
+        tests:
+          - not_null
+          - relationships:
+              to: ref('department_details')
+              field: department_id
+  
+  - name: stg_item
+    description: Item Details
+
+  - name: stg_store
+    description: Store Details
+
+  - name: columns
+    description: view to retrieve column names
+  
+  - name: t1
+    description: '{{ doc("t1") }}'
+  - name: t2
+    description: '{{ doc("t2") }}'
+  - name: t3
+    description: '{{ doc("t3") }}'
+  - name: t4
+    description: '{{ doc("t4") }}'
+  - name: t5
+    description: '{{ doc("t5") }}'
+  - name: t6
+    description: '{{ doc("t6") }}' 
+
+  - name: active_employee_details
+    description: Employee detail + department detail of active employees
+
+seeds:
+  - name: department_details
+    description: '{{ doc("dept_details") }}'
+    columns:
+      - name: department_id
+        description: primary key
+        tests:
+          - not_null
+        
+
+snapshots:
+  - name: employee_details_snapshot
+    description: snapshot data of employe details table
