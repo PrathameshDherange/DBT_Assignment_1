@@ -32,6 +32,7 @@ sources:
       - name: t4
       - name: t5
       - name: t6
+      - name: t7
       - name: department_details
       - name: stg_employee_details
 
