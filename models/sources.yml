@@ -35,6 +35,7 @@ sources:
       - name: t7
       - name: department_details
       - name: stg_employee_details
+      - name: audit_table
 
   - name: snapshot
     description: Schema to track Incremental data load
