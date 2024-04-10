@@ -20,6 +20,7 @@ sources:
     schema: information_schema
     tables:
       - name: columns
+        description: view to retrieve column names
 
   - name: staging
     description: Transformed tables / Intermediate layer
