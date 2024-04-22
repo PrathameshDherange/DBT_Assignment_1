@@ -1,0 +1,24 @@
+version: 2
+
+macros:
+  - name: curr_timestamp_macro
+    description: '{{ doc("curr_timestamp_macro") }}'
+  
+  - name: generate_database_name
+    description: '{{ doc("generate_db_name") }}'
+  
+  - name: generate_schema_name
+    description: '{{ doc("generate_schema_name") }}'
+
+  - name: generate_hashkey
+    description: '{{ doc("generate_hashkey") }}'
+    arguments:
+      - name: information_schema_name
+        type: string
+        description: The information schema name of the target table
+      - name: schema_name
+        type: string
+        description: The name of the table schema
+      - name: table_name
+        type: string
+        description: The name of the table whose columns are considered for hashkey calculation
