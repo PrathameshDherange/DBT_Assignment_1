@@ -27,17 +27,17 @@ models:
   - name: columns
     description: view to retrieve column names
   
-  - name: t1
+  - name: append_all
     description: '{{ doc("t1") }}'
-  - name: t2
+  - name: append_new
     description: '{{ doc("t2") }}'
-  - name: t3
+  - name: scd1_key_based
     description: '{{ doc("t3") }}'
-  - name: t4
+  - name: scd1_hashkey_based
     description: '{{ doc("t4") }}'
-  - name: t5
+  - name: scd2_key_based
     description: '{{ doc("t5") }}'
-  - name: t6
+  - name: scd2_hashkey_based
     description: '{{ doc("t6") }}' 
 
   - name: active_employee_details
@@ -55,4 +55,7 @@ seeds:
 
 snapshots:
   - name: employee_details_snapshot
-    description: snapshot data of employe details table
+    description: snapshot data of employe details table based on timestamp
+      
+  - name: employee_details_snapshot_check
+    description: snapshot data of employe details table based on check strategy
