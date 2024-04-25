@@ -34,17 +34,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 # continue to be built as views. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 
-on-run-start: 
-  - "truncate table dbt_db.staging.audit_table"
-  - "{{ insert_at_start('process_run') }}"
-
-on-run-end: "{{ update_at_end('process_run') }}"
-
 models:
   assignment_1:
     +transient: false
-    +pre_hook: "{{ insert_at_start(this) }}"
-    +post_hook: "{{ update_at_end(this) }}"
     # Applies to all files under models/staging/
     staging:
       +materialized: view
@@ -56,14 +48,6 @@ models:
 
 seeds:
   assignment_1:
-    +pre_hook: "{{ insert_at_start(this) }}"
-    +post_hook: "{{ update_at_end(this) }}"
     staging:
       schema: staging
 
-seeds:
-  assignment_1:
-    +pre_hook: "{{ insert_at_start(this) }}"
-    +post_hook: "{{ update_at_end(this) }}"
-    staging:
-      schema: staging

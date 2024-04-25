@@ -26,22 +26,22 @@ sources:
     description: Transformed tables / Intermediate layer
     schema: staging
     tables:
-      - name: t1
-      - name: t2
-      - name: t3
-      - name: t4
-      - name: t5
-      - name: t6
-      - name: t7
+      - name: append_all
+      - name: append_new
+      - name: scd1_key_based
+      - name: scd1_hashkey_based
+      - name: scd2_key_based
+      - name: scd2_hashkey_based
+      - name: scd2_load_ephemeral
       - name: department_details
       - name: stg_employee_details
-      - name: audit_table
 
   - name: snapshot
     description: Schema to track Incremental data load
     schema: snapshot
     tables:
       - name: employee_details_snapshot
+      - name: employee_details_snapshot_check
 
   - name: reporting
     description: Final table schema
